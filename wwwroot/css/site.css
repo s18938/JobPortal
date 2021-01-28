@@ -54,13 +54,19 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    /*position: relative;
+    min-height: 100%;*/
+   /* max-height: 300px;
+    margin: 0;
+    padding: 0;*/
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+   
+    max-height: 300px;
+    margin: 0;
+    padding: 0;
 }
 .footer {
   position: absolute;
@@ -68,4 +74,169 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". .";
+    
+    width:100%;
+    background-color: greenyellow;
+    margin: 0px;
+    
+}
+
+.jobOfferListPanel {
+    background-color: transparent;
+    margin: 10px;
+    /* overflow-y: scroll;*/
+    
+}
+
+.jobOfferListScrollPanel {
+   /* overflow-y: auto;
+    max-height:200px;*/
+}
+
+.listElement {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr 0.7fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: "logo title title . salary salary" "logo companyName location industry clientType position";
+    margin-bottom: 10px; /* space between listElement s */
+    /*border-style: groove;*/
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2);
+    clear: both;
+    /*overflow-y: auto;
+    max-height: 200px;*/
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    grid-area: logo;
+    margin: auto;
+}
+
+.title {
+    grid-area: title;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: large;
+    font-weight: bold;
+}
+
+.salary {
+    grid-area: salary;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 500;
+}
+
+.companyName,
+.location,
+.industry,
+.clientType,
+.position {
+    text-align: center;
+    color: gray;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.companyName {
+    grid-area: companyName;
+}
+
+.location {
+    grid-area: location;
+}
+
+.industry {
+    grid-area: industry;
+}
+
+.clientType {
+    grid-area: clientType;
+}
+
+.position {
+    grid-area: position;
+}
+
+.rightPanel {
+   /* display: flex;
+    justify-content: space-between;*/
+    display: grid;
+    grid-template-columns: 1fr 200px 200px;
+    grid-template-rows: 40px 1fr;
+    grid-template-areas: 
+        ". signIn signUp"
+        ". . .";
+}
+
+.signIn
+{
+    grid-area: signIn;
+    background-color: white; 
+    color: red;
+}
+
+.signUp {
+    grid-area: signUp;
+    background-color: red; 
+    color: white;
+}
+
+.signUp,
+.signIn {
+    margin-top: 10px;
+    margin-right: 10px;   
+    border: none;     
+    text-align: center;
+    text-decoration: none;  
+    font-size: 16px;
+    border-radius: 5px;
+    height: 40px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2);
+}
+
+.filterButton {
+    background-color: white;
+    color: red;
+    float: left;
+    
+}
+
+.addOfferButton {
+    background-color: red;
+    color: white;
+    float: left;
+    margin-right: 10px;
+}
+
+.filterButton,
+.addOfferButton {
+    margin-bottom: 10px;
+    
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 40px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2);
+    width: 49%;
 }

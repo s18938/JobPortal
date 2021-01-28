@@ -1,8 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@*@{
+        Layout = "_Layout";
+    }*@
 
-<div class="text-center">
-    <h1 class="display-4">Welcome1</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="map">
+    <div class="jobOfferListPanel">
+        @*<div>*@
+            <button class="addOfferButton">+ Dodaj ogłoszenie</button>
+            <button class="filterButton">Filtry</button>
+        @*</div>
+        <div class="jobOfferListScrollPanel">*@
+            <ul>
+                @for (int i = 0; i < 10; i++)
+                {
+                    <li>
+                        <div class="listElement">
+
+                            <div class="logo">logo</div>
+                            <div class="title">Przedstawiciel handlowy - IT</div>
+                            <div class="salary">5000 - 7000</div>
+
+                            <div class="companyName">Microsoft</div>
+                            <div class="location">Warszawa</div>
+                            <div class="industry">IT</div>
+                            <div class="clientType">B2C</div>
+                            <div class="position">Przedstawiciel handlowy</div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        @*</div>*@
+    </div>
+    <div class="rightPanel">
+        <button class="signIn">Zaloguj się</button>
+        <button class="signUp">Zarejestruj się</button>
+        
+    </div>
 </div>
