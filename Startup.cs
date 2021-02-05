@@ -6,6 +6,7 @@ using JobPortal.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +26,7 @@ namespace JobPortal
         public void ConfigureServices(IServiceCollection services)
         {
             //var connection = @"Data Source=127.0.0.1; Initial Catalog=job-portal; user id=root; password=root;";
-            //services.AddDbContext<jobportalContext>(options => options.UseMysql);
+            services.AddDbContext<jobportalContext>(options => options.UseMySQL("Data Source=127.0.0.1; Initial Catalog=job-portal; user id=root; password=root"));
             services.AddControllersWithViews();
         }
 

@@ -16,7 +16,14 @@ namespace JobPortal.Controllers
         }
         [HttpGet]
         public IActionResult MyProfile()
-        {           
+        {
+            //_context.Add(
+            //    new ClientType
+            //    {
+            //     ClientTypeId =2,
+            //     ClientTypeName ="B2C"
+            //    });
+            //_context.SaveChanges();
             return View("/Views/Employer/MyProfile.cshtml");
         }
        
