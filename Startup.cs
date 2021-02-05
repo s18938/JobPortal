@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobPortal.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +24,8 @@ namespace JobPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var connection = @"Data Source=127.0.0.1; Initial Catalog=job-portal; user id=root; password=root;";
+            //services.AddDbContext<jobportalContext>(options => options.UseMysql);
             services.AddControllersWithViews();
         }
 
@@ -50,7 +53,12 @@ namespace JobPortal
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=JobOffers}/{action=Index}/{id?}");
+
+                //endpoints.MapControllerRoute(name: "candidateProfile",
+                //                pattern: "Candidate/MyProfile",
+                //                defaults: new { controller = "Candidate", action = "MyProfile" });
+
             });
         }
     }

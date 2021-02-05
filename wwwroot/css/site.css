@@ -56,24 +56,30 @@ button.accept-policy {
 html {
     /*position: relative;
     min-height: 100%;*/
-   /* max-height: 300px;
+    /* max-height: 300px;
     margin: 0;
     padding: 0;*/
+    /*height: 100vh;
+    width: 100vw;*/
+    /*box-sizing: border-box;*/
+   /* position: absolute;
+    top: 0;
+    left: 0;*/
+    /*overflow: hidden;*/
 }
 
 body {
-    /* Margin bottom by footer height */
-   
-    max-height: 300px;
+    /* Margin bottom by footer height */ 
+    height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0;   
 }
 .footer {
-  position: absolute;
+  /*position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;*/ /* Vertically center the text there */
 }
 
 .map {
@@ -81,50 +87,57 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: ". .";
-    
-    width:100%;
-    background-color: greenyellow;
-    margin: 0px;
-    
+    background-color: wheat;
+    margin: 0px;  
 }
 
 .jobOfferListPanel {
     background-color: transparent;
-    margin: 10px;
-    /* overflow-y: scroll;*/
-    
+    height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    padding-right: 10px;
 }
 
-.jobOfferListScrollPanel {
-   /* overflow-y: auto;
-    max-height:200px;*/
-}
+/*.jobOfferListScrollPanel {*/
+    /*height: 100%;
+    overflow: auto;*/
+    /*overflow-y: auto;*/
+    /*max-height:100%;*/
+/*}*/
 
 .listElement {
+    height: auto; /* auto ? */
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1.3fr 0.7fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
-    grid-template-areas: "logo title title . salary salary" "logo companyName location industry clientType position";
+    grid-template-rows: 1.5fr 1fr;
+    grid-template-areas: "logo title title title salary salary" "logo companyName location industry clientType position";
     margin-bottom: 10px; /* space between listElement s */
-    /*border-style: groove;*/
     border-radius: 5px;
     padding: 5px;
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2);
-    clear: both;
-    /*overflow-y: auto;
-    max-height: 200px;*/
+    clear: both;  
 }
 
 ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0;  
 }
 
 .logo {
     grid-area: logo;
-    margin: auto;
+    margin: auto;   
+    padding-right:5px;
+}
+
+.logoImg{
+    margin:15%;   
+    /*width: 70%;
+    height:70%;*/
+    max-height:90px;
+    width:70%;
 }
 
 .title {
@@ -177,60 +190,71 @@ ul {
 }
 
 .rightPanel {
-   /* display: flex;
-    justify-content: space-between;*/
-    display: grid;
+    display: flex;
+    justify-content: space-between;
+    
+   /* display: grid;
     grid-template-columns: 1fr 200px 200px;
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: 50px 1fr;
     grid-template-areas: 
         ". signIn signUp"
-        ". . .";
+        ". . .";*/
 }
 
-.signIn
-{
-    grid-area: signIn;
-    background-color: white; 
+.signButtons {
+    align-self: end;
+}
+
+.signIn {
+    /*grid-area: signIn;*/
+    background-color: white;
     color: red;
+    margin-right: 10px;
 }
 
 .signUp {
-    grid-area: signUp;
-    background-color: red; 
+    /* grid-area: signUp;*/
+    background-color: red;
     color: white;
+    margin-right: 20px;
 }
 
 .signUp,
 .signIn {
-    margin-top: 10px;
-    margin-right: 10px;   
-    border: none;     
+    margin-top: 20px; 
+    border: none;
     text-align: center;
-    text-decoration: none;  
+    text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
     height: 40px;
+    width: 200px;
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2);
+  
+}
+
+.listButtons {
+    align-self: start;
 }
 
 .filterButton {
     background-color: white;
     color: red;
-    float: left;
-    
+    height: 40px;
+    margin-top: 20px; /*just for rightPanel's buttons */
 }
 
 .addOfferButton {
     background-color: red;
     color: white;
-    float: left;
-    margin-right: 10px;
+    margin-top: 20px; /*just for rightPanel's buttons */
+    /*margin-right: 4%;*/ /*just for leftPanel's buttons */
+    clear: both; /*just for rightPanel's buttons */
 }
 
 .filterButton,
 .addOfferButton {
-    margin-bottom: 10px;
-    
+    /* margin-bottom: 20px;*/ /*just for leftPanel's buttons */
     border: none;
     text-align: center;
     text-decoration: none;
@@ -238,5 +262,39 @@ ul {
     border-radius: 5px;
     height: 40px;
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .2);
-    width: 49%;
+    width: 200px;
+    margin-left: 10px; /*just for rightPanel's buttons */
+    
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*background: #f1f1f1;*/
+    margin-top:20px;
+    margin-bottom:20px;
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+.cos {
+    height: 2000px;
+    width:500px;
+    background-color: aqua;
+    color:red;
+    background:center;
 }

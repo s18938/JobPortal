@@ -1,25 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@*@{
+@{
         Layout = "_Layout";
-    }*@
+    }
 
 
 <div class="map">
     <div class="jobOfferListPanel">
-        @*<div>*@
+        @*<div>
             <button class="addOfferButton">+ Dodaj ogłoszenie</button>
             <button class="filterButton">Filtry</button>
-        @*</div>
+        </div>
         <div class="jobOfferListScrollPanel">*@
             <ul>
-                @for (int i = 0; i < 10; i++)
+                @for (int i = 0; i < 20; i++)
                 {
                     <li>
                         <div class="listElement">
-
-                            <div class="logo">logo</div>
+                            <div class="logo">
+                                @if (i % 2 == 0)
+                                {
+                                    <img class="logoImg" src="~/img/netflix.png">
+                                }
+                                else if (i % 3 == 0)
+                                {
+                                    <img class="logoImg" src="~/img/microsoft.png">
+                                }
+                                else
+                                {
+                                    <img class="logoImg" src="~/img/rybnik.png">
+                                }
+                            </div>
+                            @*<div class="logo">logo</div>*@
                             <div class="title">Przedstawiciel handlowy - IT</div>
                             <div class="salary">5000 - 7000</div>
 
@@ -35,8 +48,16 @@
         @*</div>*@
     </div>
     <div class="rightPanel">
-        <button class="signIn">Zaloguj się</button>
-        <button class="signUp">Zarejestruj się</button>
-        
+        <div class="listButtons">
+            <a class="addOfferButton" asp-controller="Candidates" asp-action="MyProfile">kandydaci</a>
+            <a class="filterButton" asp-controller="Employers" asp-action="MyProfile">pracodawcy</a>
+            @*<button class="addOfferButton" href="Pages/Candidate/MyProfile">+ Dodaj ogłoszenie</button>*@
+            @*<button class="filterButton">Filtry</button>*@
+        </div>
+
+        <div class="signButtons">
+            <button class="signIn">Zaloguj się</button>
+            <button class="signUp">Zarejestruj się</button>
+        </div>
+        </div>
     </div>
-</div>
