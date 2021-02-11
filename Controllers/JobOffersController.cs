@@ -14,6 +14,12 @@ namespace JobPortal.Controllers
         {
             _context = context;
         }
+
+        [HttpGet]
+        public IActionResult Map()
+        {
+            return View("/Views/Home/Map.cshtml");
+        }
         [HttpGet]
         public IActionResult Index()
         {          
